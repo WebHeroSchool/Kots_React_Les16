@@ -5,14 +5,17 @@ import Footer from '../Footer/Footer';
 import styles from './App.module.css'
 
 const deals = [{
-  value: 'Встать',
-  isDone: true
+  id: 1,
+  isDone: true,
+  value: 'Встать'
 },{
-  value: 'Посидеть',
-  isDone: false
+  id: 2,
+  isDone: false,
+  value: 'Посидеть'
 },{
-  value: 'Лечь',
-  isDone: true
+  id: 3,
+  isDone: true,
+  value: 'Лечь'
 }];
 const dealNumber = deals.length;
 

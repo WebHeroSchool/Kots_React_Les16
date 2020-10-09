@@ -1,8 +1,9 @@
 .wrap {
   margin: auto;
-  width: 300px;
+  width: 500px;
 }
 
 .title {
   font-family: Helvetica;
+  text-align: center;
 }

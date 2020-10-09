@@ -1,0 +1,20 @@
+.dealNumber {
+  color: #888;
+  font-family: 'Helvetica';
+  font-size: 13px;
+}
+
+.filters {
+  border-radius: 4px;
+  position: absolute;
+  top: -20%;
+  right: -10px;
+}
+
+.filter {
+  font-size: 10px;
+}
+
+footer {
+  position: relative;
+}
