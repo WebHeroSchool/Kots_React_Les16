@@ -1,5 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-const element = (<div>Hello World!<a href=''>go to</a></div>);
 
-export {element};
+const ItemList = () => (<ul>
+<li>1</li>
+<li>2</li>
+</ul>);
+const App = () => (<div><h1>Hello World!</h1><ItemList /></div>);
+
+export default App;
