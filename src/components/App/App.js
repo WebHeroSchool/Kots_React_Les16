@@ -3,7 +3,9 @@ import InputItem from '../InputItem/InputItem';
 import ItemList from '../ItemList/ItemList';
 import Footer from '../Footer/Footer';
 
-const deals = ['Встать','Посидеть','Лечь'];
+const deals = [{value: 'Встать'},
+{value: 'Посидеть'},
+{value: 'Лечь'}];
 const dealNumber = deals.length;
 
 const App = () => (<div><h1>TODOS</h1>
@@ -12,4 +14,4 @@ const App = () => (<div><h1>TODOS</h1>
   <Footer dealNumber={dealNumber}/>
   </div>);
 
-export default App;
+  export default App;

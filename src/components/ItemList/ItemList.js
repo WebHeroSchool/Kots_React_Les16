@@ -2,9 +2,7 @@ import React from 'react';
 import Item from './Item/Item';
 
 const ItemList = ({deals}) => (<ul>
-<li><Item deal={deals[0]}/></li>
-<li><Item deal={deals[1]}/></li>
-<li><Item deal={deals[2]}/></li>
+  {deals.map(deal => <li key={deal.value}><Item deal={deal.value}/></li>)}
 </ul>);
 
 export default ItemList;
