@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Footer = () => (<footer>
-  <span>3 задания</span>
-  <div class='filter'>
+const Footer = ({dealNumber}) => (<footer>
+  <span>Осталось выполнить {dealNumber} задания</span>
+  <div className='filter'>
     <button>Все</button>
     <button>Активные</button>
     <button>Выполненные</button>
