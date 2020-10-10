@@ -8,7 +8,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 
 
-const Item = ({deal, isDone, id}) => (
+const Item = ({deal, isDone, id, onClickCheck}) => (
   <ListItem>
   <ListItemIcon>
     <Checkbox
@@ -16,6 +16,7 @@ const Item = ({deal, isDone, id}) => (
       checked={isDone}
       tabIndex={-1}
       disableRipple
+      onClick = {() => onClickCheck(isDone)}
     />
   </ListItemIcon>
   <ListItemText id={id} primary={deal} />

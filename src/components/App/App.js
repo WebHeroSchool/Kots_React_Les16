@@ -21,11 +21,21 @@ class App extends React.Component {
     }]
   };
 
+  constructor(props) {
+    super(props);
+
+    this.onClickCheck = this.onClickCheck.bind(this);
+  }
+
+  onClickCheck(isDone) {
+    console.log(isDone);
+  }
+
   render() {
     return  (<div className={styles.wrap}>
       <h1 className={styles.title}>TODOs</h1>
       <InputItem />
-      <ItemList deals={this.state.deals}/>
+      <ItemList deals={this.state.deals} onClickCheck={this.onClickCheck}/>
       <Footer dealNumber={this.state.deals.length}/>
       </div>
     );
