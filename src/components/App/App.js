@@ -33,13 +33,22 @@ class App extends React.Component {
     this.setState({deals: newDealList});
   };
 
+  onClickDelete = id => {
+    const newDealList = this.state.deals.filter(deal => deal.id !== id);
+
+    this.setState({deals: newDealList});
+  };
 
   render() {
     return  (
       <div className={styles.wrap}>
       <h1 className={styles.title}>TODOs</h1>
       <InputItem />
-      <ItemList deals={this.state.deals} onClickCheck={this.onClickCheck}/>
+      <ItemList
+        deals={this.state.deals}
+        onClickCheck={this.onClickCheck}
+        onClickDelete={this.onClickDelete}
+        />
       <Footer dealNumber={this.state.deals.length}/>
       </div>
     );

@@ -2,7 +2,7 @@ import React from 'react';
 import Item from './Item/Item';
 import styles from './ItemList.module.css';
 
-const ItemList = ({deals, onClickCheck}) => (<ul>
+const ItemList = ({deals, onClickCheck, onClickDelete}) => (<ul>
   {deals.map(deal =>
     <Item
     key={deal.id}
@@ -10,6 +10,7 @@ const ItemList = ({deals, onClickCheck}) => (<ul>
     isDone={deal.isDone}
     id={deal.id}
     onClickCheck={onClickCheck}
+    onClickDelete={onClickDelete}
     />
   )}
   </ul>

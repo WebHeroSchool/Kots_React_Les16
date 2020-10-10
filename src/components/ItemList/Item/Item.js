@@ -8,24 +8,27 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 
 
-const Item = ({deal, isDone, id, onClickCheck}) => (
+const Item = ({deal, isDone, id, onClickCheck, onClickDelete}) => (
   <ListItem>
-  <ListItemIcon>
-    <Checkbox
+    <ListItemIcon>
+      <Checkbox
       edge="start"
       checked={isDone}
       tabIndex={-1}
       disableRipple
       onClick = {() => onClickCheck(id)}
-    />
-  </ListItemIcon>
-  <ListItemText id={id} primary={deal} />
-  <ListItemSecondaryAction>
-    <IconButton edge="end" aria-label="comments">
-      <DeleteIcon />
-    </IconButton>
-  </ListItemSecondaryAction>
-</ListItem>
+      />
+    </ListItemIcon>
+    <ListItemText id={id} primary={deal} />
+    <ListItemSecondaryAction>
+      <IconButton
+      edge="end"
+      aria-label="comments"
+      onClick = {() => onClickDelete(id)}>
+        <DeleteIcon />
+      </IconButton>
+    </ListItemSecondaryAction>
+  </ListItem>
 );
 
 export default Item;
