@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
+import PropTypes from 'prop-types';
 import styles from './Footer.module.css';
 
 const Footer = ({dealNumber}) => (<footer>
@@ -20,5 +21,9 @@ const Footer = ({dealNumber}) => (<footer>
 );
 
 Footer.defaultProps = { dealNumber: 0 };
+
+Footer.propTypes = {
+  dealNumber: PropTypes.number
+};
 
 export default Footer;

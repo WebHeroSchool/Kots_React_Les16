@@ -6,6 +6,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
+import PropTypes from 'prop-types';
 
 
 const Item = ({deal, isDone, id, onClickCheck, onClickDelete}) => (
@@ -30,5 +31,10 @@ const Item = ({deal, isDone, id, onClickCheck, onClickDelete}) => (
     </ListItemSecondaryAction>
   </ListItem>
 );
+
+Item.propTypes = {
+  deal: PropTypes.string,
+  isDone: PropTypes.bool
+};
 
 export default Item;

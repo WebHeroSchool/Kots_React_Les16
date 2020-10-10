@@ -38,17 +38,20 @@ class InputItem extends React.Component {
       InputLabelProps={{shrink: true,}}
       className={styles.input}
       value={this.state.inputValue}
-      onChange={event => {
-        this.setState({inputValue: event.target.value.toUpperCase()});
-      }}
-      error={this.state.error}
-      helperText={this.state.helperText}
-      />
-      <Button
-      className={styles.add}
-      onClick={this.onButtonClick}>Добавить</Button>
-      </div>);
+      onChange={ event => {
+        this.setState({
+          inputValue: event.target.value.toUpperCase()
+        });
+      }
     }
+    error={this.state.error}
+    helperText={this.state.helperText}
+    />
+    <Button
+    className={styles.add}
+    onClick={this.onButtonClick}>Добавить</Button>
+    </div>);
   }
+}
 
-  export default InputItem;
+export default InputItem;
