@@ -21,6 +21,16 @@ class App extends React.Component {
     }]
   };
 
+  onClickAdd = value => this.setState(state => ({
+    deals: [...state.deals,
+      {
+        id: state.deals.length + 1,
+        isDone: false,
+        value: value
+      }
+    ]
+  }));
+
   onClickCheck = id => {
     const newDealList = this.state.deals.map(deal => {
       const newDeal = { ...deal };
@@ -34,22 +44,20 @@ class App extends React.Component {
   };
 
   onClickDelete = id => {
-    const newDealList = this.state.deals.filter(deal => deal.id !== id);
-
-    this.setState({deals: newDealList});
+    this.setState(state => ({deals: this.state.deals.filter(deal => deal.id !== id)}));
   };
 
   render() {
     return  (
       <div className={styles.wrap}>
       <h1 className={styles.title}>TODOs</h1>
-      <InputItem />
+      <InputItem onClickAdd={this.onClickAdd} />
       <ItemList
-        deals={this.state.deals}
-        onClickCheck={this.onClickCheck}
-        onClickDelete={this.onClickDelete}
-        />
-      <Footer dealNumber={this.state.deals.length}/>
+      deals={this.state.deals}
+      onClickCheck={this.onClickCheck}
+      onClickDelete={this.onClickDelete}
+      />
+      <Footer dealNumber={this.state.deals.length} />
       </div>
     );
   }
