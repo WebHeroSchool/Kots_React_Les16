@@ -5,8 +5,8 @@ import Footer from '../Footer/Footer';
 import styles from './App.module.css'
 
 class App extends React.Component {
-  render() {
-    const deals = [{
+  state = {
+    deals: [{
       id: 1,
       isDone: true,
       value: 'Встать'
@@ -18,14 +18,15 @@ class App extends React.Component {
       id: 3,
       isDone: true,
       value: 'Лечь'
-    }];
-    const dealNumber = deals.length;
+    }]
+  };
 
+  render() {
     return  (<div className={styles.wrap}>
       <h1 className={styles.title}>TODOs</h1>
       <InputItem />
-      <ItemList deals={deals}/>
-      <Footer dealNumber={dealNumber}/>
+      <ItemList deals={this.state.deals}/>
+      <Footer dealNumber={this.state.deals.length}/>
       </div>
     );
   }
