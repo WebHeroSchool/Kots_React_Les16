@@ -16,7 +16,7 @@ const Item = ({deal, isDone, id, onClickCheck}) => (
       checked={isDone}
       tabIndex={-1}
       disableRipple
-      onClick = {() => onClickCheck(isDone)}
+      onClick = {() => onClickCheck(id)}
     />
   </ListItemIcon>
   <ListItemText id={id} primary={deal} />

@@ -21,18 +21,22 @@ class App extends React.Component {
     }]
   };
 
-  constructor(props) {
-    super(props);
+  onClickCheck = id => {
+    const newDealList = this.state.deals.map(deal => {
+      const newDeal = { ...deal };
+      if (deal.id === id) {
+        newDeal.isDone = !deal.isDone;
+      }
+      return newDeal;
+    });
 
-    this.onClickCheck = this.onClickCheck.bind(this);
-  }
+    this.setState({deals: newDealList});
+  };
 
-  onClickCheck(isDone) {
-    console.log(isDone);
-  }
 
   render() {
-    return  (<div className={styles.wrap}>
+    return  (
+      <div className={styles.wrap}>
       <h1 className={styles.title}>TODOs</h1>
       <InputItem />
       <ItemList deals={this.state.deals} onClickCheck={this.onClickCheck}/>
