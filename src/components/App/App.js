@@ -1,75 +1,40 @@
 import React, {useState, useEffect} from 'react';
-import InputItem from '../InputItem/InputItem';
-import ItemList from '../ItemList/ItemList';
-import Footer from '../Footer/Footer';
+import Card from '@material-ui/core/Card';
+import MenuList from '@material-ui/core/MenuList';
+import MenuItem from '@material-ui/core/MenuItem';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
+import AboutMe from '../AboutMe/AboutMe';
+import Contacts from '../Contacts/Contacts';
+import Todos from '../Todos/Todos';
 import styles from './App.module.css'
 
 
 const App = () => {
 
-  const createId = () => {
-    return `${Math.random().toString(36).substr(2, 9)}`;
-  }
-
-  const initialState = {
-    deals: [{
-      id: createId(),
-      isDone: true,
-      value: 'Встать'
-    },{
-      id: createId(),
-      isDone: false,
-      value: 'Посидеть'
-    },{
-      id: createId(),
-      isDone: true,
-      value: 'Лечь'
-    }]
-  };
-
-  const [deals, setDeals] = useState(initialState.deals);
-
-  useEffect(() => {console.log('componentDidMount')}, []);
-  useEffect(() => {console.log('componentDidUpdate')}, [deals]);
-
-  const onClickAdd = value => {
-    const newDealList = [...deals,
-      {
-        id: createId(),
-        isDone: false,
-        value: value
-      }
-    ];
-    setDeals(newDealList);
-  };
-
-  const onClickCheck = id => {
-    const newDealList = deals.map(deal => {
-      const newDeal = { ...deal };
-      if (deal.id === id) {
-        newDeal.isDone = !deal.isDone;
-      }
-      return newDeal;
-    });
-    setDeals(newDealList);
-  };
-
-  const onClickDelete = id => {
-    const newDealList = deals.filter(deal => deal.id !== id);
-    setDeals(newDealList);
-  };
-
   return  (
-    <div className={styles.wrap}>
-    <h1 className={styles.title}>TODOs</h1>
-    <InputItem onClickAdd={onClickAdd} />
-    <ItemList
-    deals={deals}
-    onClickCheck={onClickCheck}
-    onClickDelete={onClickDelete}
-    />
-    <Footer dealNumber={deals.length} />
-    </div>
+    <BrowserRouter>
+      <div className={styles.wrap}>
+        <Card className={styles.sidebar}>
+          <MenuList style={{display: 'inline-block', verticalAlign: 'top'}}>
+            <Link to='/' className={styles.link}><MenuItem style={{fontSize: '18px'}}>
+              Дела
+            </MenuItem></Link>
+            <Link to='/contacts' className={styles.link}><MenuItem style={{fontSize: '18px'}}>
+              Контакты
+            </MenuItem></Link>
+            <Link to='/aboutme' className={styles.link}><MenuItem style={{fontSize: '18px'}}>
+              Обо мне
+            </MenuItem></Link>
+          </MenuList>
+        </Card>
+
+        <Card className={styles.content}>
+          <Route path='/' exact component={Todos} />
+          <Route path='/contacts' component={Contacts} />
+          <Route path='/aboutme' component={AboutMe} />
+        </Card>
+      </div>
+    </BrowserRouter>
   );
 }
 

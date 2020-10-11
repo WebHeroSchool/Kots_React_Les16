@@ -1,0 +1,23 @@
+.wrap {
+  display: inline-block;
+  margin: auto;
+  padding-bottom: 25px;
+  width: 500px;
+}
+
+.title {
+  font-family: Helvetica;
+  text-align: center;
+}
+
+.label {
+  display: block;
+  font-size: 18px;
+  margin-left: 40px;
+  width: 250px;
+}
+
+.address {
+  display: inline-block;
+  text-align: center;
+}
