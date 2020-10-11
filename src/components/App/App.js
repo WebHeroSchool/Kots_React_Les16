@@ -7,24 +7,26 @@ import styles from './App.module.css'
 class App extends React.Component {
   state = {
     deals: [{
-      id: 1,
+      id: this.createId(),
       isDone: true,
       value: 'Встать'
     },{
-      id: 2,
+      id: this.createId(),
       isDone: false,
       value: 'Посидеть'
     },{
-      id: 3,
+      id: this.createId(),
       isDone: true,
       value: 'Лечь'
     }]
   };
 
+  createId() { return `${Math.random().toString(36).substr(2, 9)}` };
+
   onClickAdd = value => this.setState(state => ({
     deals: [...state.deals,
       {
-        id: state.deals.length + 1,
+        id: this.createId(),
         isDone: false,
         value: value
       }

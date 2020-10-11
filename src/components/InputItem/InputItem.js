@@ -5,9 +5,9 @@ import styles from './InputItem.module.css';
 
 class InputItem extends React.Component {
   state = {
-    inputValue: '',
+    error: false,
     helperText: '',
-    error: false
+    inputValue: ''
   };
 
   onButtonClick = () => {
@@ -28,7 +28,7 @@ class InputItem extends React.Component {
 
   render() {
 
-    return  (
+    return (
       <div>
       <TextField
       id="standard-full-width"
