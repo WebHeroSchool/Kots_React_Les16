@@ -16,3 +16,33 @@
   margin-left: 40px;
   text-align: right;
 }
+
+.progress {
+  padding: 7%;
+  text-align: center;
+}
+
+.list {
+  font-family: sans-serif;
+}
+
+.link {
+  color: #000;
+  text-decoration: none;
+}
+
+.info {
+  display: inline-block;
+  margin: auto 40px;
+  vertical-align: top;
+}
+
+.inline {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.text {
+  font-size: 20px;
+  padding-left: 10px;
+}
