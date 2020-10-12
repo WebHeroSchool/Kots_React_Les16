@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  background-color: aliceblue;
+  height: calc(100vh - 30px);
+}
+
+.wrap {
+  margin: auto;
+  margin-top: 30px!important;
+  width: 500px;
+}
+
+.title {
+  font-family: Helvetica;
+  text-align: center;
+}
+
+.link {
+  color: #000;
+  text-decoration: none;
+}
+
+.sidebar {
+  background-color: #757575!important;
+  display: inline-block;
+  grid-area: sidebar;
+}
+
+.content {
+  grid-area: content;
+  display: inline-block;
+}
+
+.wrap {
+  display: grid;
+  grid-template-areas: 'sidebar . content';
+  margin: auto;
+  width: 650px;
+}

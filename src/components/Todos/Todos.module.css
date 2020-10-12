@@ -1,0 +1,10 @@
+.wrap {
+  display: inline-block;
+  margin: auto;
+  width: 500px;
+}
+
+.title {
+  font-family: Helvetica;
+  text-align: center;
+}
