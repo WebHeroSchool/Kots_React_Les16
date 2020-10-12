@@ -16,20 +16,16 @@ class AboutMe extends React.Component {
   componentDidMount() {
     octokit.repos.listForUser({username: 'AnnaKots',})
     .then(data => {
-      this.setState({
-        reposList: data.data,
-        isLoading: false
+      octokit.users.getByUsername({username: 'AnnaKots',})
+      .then(user => {
+        this.setState({
+          isLoading: false,
+          reposList: data.data,
+          userInfo: user.data
+        })
       });
     })
     .catch(err => console.log(err));
-
-    octokit.users.getByUsername({
-      username: 'AnnaKots',
-    }).then(data => {
-      this.setState({
-        userInfo: data.data
-      })
-    });
   }
 
   render() {
