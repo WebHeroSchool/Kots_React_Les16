@@ -9,20 +9,24 @@ const octokit = new Octokit();
 class AboutMe extends React.Component {
   state = {
     isLoading: true,
+    name: 'AnnaKots',
     reposList: [],
     userInfo: {}
   }
 
   componentDidMount() {
-    octokit.repos.listForUser({username: 'AnnaKots',})
+    octokit.repos.listForUser({username: this.state.name,})
     .then(data => {
-      octokit.users.getByUsername({username: 'AnnaKots',})
+      octokit.users.getByUsername({username: this.state.name,})
       .then(user => {
         this.setState({
           isLoading: false,
           reposList: data.data,
           userInfo: user.data
         })
+      })
+      .catch(err => {
+        console.log(err);
       });
     })
     .catch(err => console.log(err));
