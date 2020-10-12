@@ -18,7 +18,8 @@
 }
 
 .progress {
-  padding: 7%;
+  font-weight: 300;
+  padding: 8%;
   text-align: center;
 }
 
@@ -28,7 +29,12 @@
 
 .link {
   color: #000;
+  font-size: 18px;
   text-decoration: none;
+}
+
+.link:hover {
+  color: #757575;
 }
 
 .info {
@@ -39,10 +45,23 @@
 
 .inline {
   display: inline-block;
-  margin-bottom: 10px;
+  margin-bottom: 9px;
 }
 
 .text {
   font-size: 20px;
   padding-left: 10px;
+}
+
+.buttonOuter {
+  margin-top: 15px;
+}
+
+.buttonInner {
+  width: 208px;
+}
+
+.language {
+  font-family: system-ui;
+  font-weight: 200;
 }

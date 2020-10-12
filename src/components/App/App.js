@@ -16,13 +16,13 @@ const App = () => {
       <div className={styles.wrap}>
         <Card className={styles.sidebar}>
           <MenuList style={{display: 'inline-block', verticalAlign: 'top'}}>
-            <Link to='/' className={styles.link}><MenuItem style={{fontSize: '18px'}}>
+            <Link to='/' className={styles.link}><MenuItem style={{fontSize: '20px', fontWeight: 500}}>
               Дела
             </MenuItem></Link>
-            <Link to='/contacts' className={styles.link}><MenuItem style={{fontSize: '18px'}}>
+            <Link to='/contacts' className={styles.link}><MenuItem style={{fontSize: '20px', fontWeight: 500}}>
               Контакты
             </MenuItem></Link>
-            <Link to='/aboutme' className={styles.link}><MenuItem style={{fontSize: '18px'}}>
+            <Link to='/aboutme' className={styles.link}><MenuItem style={{fontSize: '20px', fontWeight: 500}}>
               Обо мне
             </MenuItem></Link>
           </MenuList>
