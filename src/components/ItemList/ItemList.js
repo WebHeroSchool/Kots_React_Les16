@@ -5,16 +5,19 @@ import styles from './ItemList.module.css';
 class ItemList extends React.Component {
 
   render() {
-    const {deals, onClickCheck, onClickDelete} = this.props;
+    const {filter, onClickCheck, onClickDelete, onDoubleClickEdit, onBlurSave} = this.props;
     return (<ul>
-      {deals.map(deal =>
+      {filter.map(deal =>
         <Item
         key={deal.id}
-        deal={deal.value}
+        value={deal.value}
+        edit={deal.edit}
         isDone={deal.isDone}
         id={deal.id}
         onClickCheck={onClickCheck}
         onClickDelete={onClickDelete}
+        onDoubleClickEdit={onDoubleClickEdit}
+        onBlurSave={onBlurSave}
         />
       )}
       </ul>
