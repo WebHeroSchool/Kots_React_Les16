@@ -11,9 +11,21 @@ class InputItem extends React.Component {
 
   state = {
     error: false,
+    menuIsOpen: false,
+    anchorEl: null,
     helperText: '',
     inputValue: '',
-    sort: 'None'
+    sort: {
+      id: '',
+      value: ''
+    },
+    options: [{id: 1, value: 'None', description: 'Без сортировки'},
+    {id: 2, value: 'A', description: 'С начала алфавита'},
+    {id: 3, value: 'Z', description: 'С конца алфавита'}]
+  };
+
+  onClickOpenMenu = (event) => {
+    this.setState({menuIsOpen: true, anchorEl: event.currentTarget});
   };
 
   onButtonClick = () => {
@@ -38,8 +50,11 @@ class InputItem extends React.Component {
       }
     };
 
+    onBlurCloseSort = () => {
+        this.setState({menuIsOpen: false});
+    }
+
   render() {
-    const {onClickSort} = this.props;
 
     return (
       <div>
@@ -58,6 +73,11 @@ class InputItem extends React.Component {
             });
           }
         }
+        onKeyPress = {
+          (event) => {
+            if (event.key === 'Enter') { this.onButtonClick() }
+          }
+        }
         error={this.state.error}
         helperText={this.state.helperText}
         />
@@ -68,11 +88,25 @@ class InputItem extends React.Component {
           aria-label="more"
           aria-controls="long-menu"
           aria-haspopup="true"
-          onClick={() => onClickSort()}
-          style={{padding: '13px 13px 0'}}
-        >
+           onClick={this.onClickOpenMenu}
+          style={{padding: '13px'}}>
           <SortIcon />
         </IconButton>
+        <Menu
+          id="long-menu"
+          keepMounted
+          anchorEl={this.state.anchorEl}
+          open={this.state.menuIsOpen}
+          onClose={() => this.onBlurCloseSort()}
+        >
+          {this.state.options.map((option) => (
+            <MenuItem
+            key={option.id}
+            onClick={()=>this.props.onClickSort(option.value)}>
+              {option.description}
+            </MenuItem>
+          ))}
+        </Menu>
     </div>);
   }
 }

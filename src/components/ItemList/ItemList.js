@@ -6,7 +6,7 @@ import styles from './ItemList.module.css';
 class ItemList extends React.Component {
 
   render() {
-    const {filter, onClickCheck, onClickDelete, onDoubleClickEdit, onBlurSave, onDragEnd,} = this.props;
+    const {filter, onClickCheck, onClickDelete, onDoubleClickEdit, onBlurSave, onDragEnd} = this.props;
     return (
       <DragDropContext onDragEnd={onDragEnd}>
         <Droppable droppableId={"list"}>
