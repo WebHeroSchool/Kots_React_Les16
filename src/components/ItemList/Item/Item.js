@@ -12,7 +12,8 @@ import styles from './Item.module.css';
 
 
 const Item = ({
-  value, isDone, id, edit, onClickCheck, onClickDelete, onDoubleClickEdit, onBlurSave}) => {
+  value, isDone, id, edit, onClickCheck, onClickDelete, onDoubleClickEdit,
+  onBlurSave, index, provided, innerRef  }) => {
 
   const initialState = {
      value: {
@@ -23,56 +24,60 @@ const Item = ({
   const [input, setInput] = useState(initialState.value);
 
   return (
-    <ListItem>
-      <ListItemIcon>
-        <Checkbox
-        edge="start"
-        checked={isDone}
-        tabIndex={-1}
-        disableRipple
-        onClick = {() => onClickCheck(id)}
-        />
-      </ListItemIcon>
-      {
-        edit
-        ? <TextField
-          id="standard-full-width"
-          style={{ margin: 8, width: 315 }}
-          margin="normal"
-          InputLabelProps={{shrink: true,}}
-          className={styles.input}
-          value={input.value}
-          onChange={
-            event => {
-              setInput({
-                value: event.target.value
-              });
-            }
-          }
-          onBlur={ () => onBlurSave(id, input.value, isDone) }
-          onKeyPress = {
-            (event) => {
-              if (event.key === 'Enter') {
-                onBlurSave(id, input.value, isDone)
+      <ListItem
+      className={styles.line}
+      ref={innerRef}
+      {...provided.draggableProps}
+      {...provided.dragHandleProps}>
+        <ListItemIcon>
+          <Checkbox
+          edge="start"
+          checked={isDone}
+          tabIndex={-1}
+          disableRipple
+          onClick = {() => onClickCheck(id)}
+          />
+        </ListItemIcon>
+        {
+          edit
+          ? <TextField
+            id="standard-full-width"
+            style={{ margin: 8, width: 315 }}
+            margin="normal"
+            InputLabelProps={{shrink: true,}}
+            className={styles.input}
+            value={input.value}
+            onChange={
+              event => {
+                setInput({
+                  value: event.target.value
+                });
               }
             }
-          }
-        />
-        : <ListItemText
-          className={styles.text}
-          primary={value}
-          onDoubleClick = { () => onDoubleClickEdit(id) }
-        />
-      }
-      <ListItemSecondaryAction>
-        <IconButton
-        edge="end"
-        aria-label="comments"
-        onClick = {() => onClickDelete(id)}>
-          <DeleteIcon />
-        </IconButton>
-      </ListItemSecondaryAction>
-    </ListItem>
+            onBlur={ () => onBlurSave(id, input.value, isDone) }
+            onKeyPress = {
+              (event) => {
+                if (event.key === 'Enter') {
+                  onBlurSave(id, input.value, isDone)
+                }
+              }
+            }
+          />
+          : <ListItemText
+            className={styles.text}
+            primary={value}
+            onDoubleClick = { () => onDoubleClickEdit(id) }
+          />
+        }
+        <ListItemSecondaryAction>
+          <IconButton
+          edge="end"
+          aria-label="comments"
+          onClick = {() => onClickDelete(id)}>
+            <DeleteIcon />
+          </IconButton>
+        </ListItemSecondaryAction>
+      </ListItem>
   );
 }
 

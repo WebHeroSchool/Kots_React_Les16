@@ -76,8 +76,12 @@ const Todos = () => {
     setDeals(newDealList);
   };
 
-  const onClickSort = sorting => {
-    setFilter(sorting);
+  const onClickSort = () => {
+    console.log('hey');
+  }
+
+  const onClickFilter = filtering => {
+    setFilter(filtering);
   };
 
   const onBlurSave = (id, value, isDone) => {
@@ -93,35 +97,46 @@ const Todos = () => {
     setDeals(newDealList);
   };
 
+  const onDragEnd = result => {
+    const { source, destination } = result;
+    if (!destination) return;
+    const newDealList = [...deals];
+    const [removed] = newDealList.splice(source.index, 1);
+    newDealList.splice(destination.index, 0, removed);
+    setDeals([...newDealList]);
+  };
+
   let filteringList;
   switch (filter) {
-      case 'done':
-          filteringList = deals.filter(item => item.isDone);
-          break;
-      case 'active':
-          filteringList = deals.filter(item => !item.isDone);
-          break;
-      case 'all':
-          filteringList = deals;
-          break;
-      default :
-          filteringList = deals;
+    case 'done':
+      filteringList = deals.filter(item => item.isDone);
+      break;
+    case 'active':
+      filteringList = deals.filter(item => !item.isDone);
+      break;
+    case 'all':
+      filteringList = deals;
+      break;
+    default :
+      filteringList = deals;
   }
 
   return (
     <div className={styles.wrap}>
       <h1 className={styles.title}>TODOs</h1>
-      <InputItem deals={deals} onClickAdd={onClickAdd} />
+      <InputItem deals={deals} onClickAdd={onClickAdd} onClickSort={onClickSort}/>
       <ItemList
       onClickCheck={onClickCheck}
       onClickDelete={onClickDelete}
       onDoubleClickEdit={onDoubleClickEdit}
       onBlurSave={onBlurSave}
+      onDragEnd={onDragEnd}
+      onClickSort={onClickSort}
       filter={filteringList}
       />
       <Footer
       dealNumber={filteringList.length}
-      onClickSort={onClickSort}
+      onClickFilter={onClickFilter}
       filter={filter}
       />
     </div>

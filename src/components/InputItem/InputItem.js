@@ -1,13 +1,19 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import SortIcon from '@material-ui/icons/Sort';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 import styles from './InputItem.module.css';
 
 class InputItem extends React.Component {
+
   state = {
     error: false,
     helperText: '',
-    inputValue: ''
+    inputValue: '',
+    sort: 'None'
   };
 
   onButtonClick = () => {
@@ -33,6 +39,7 @@ class InputItem extends React.Component {
     };
 
   render() {
+    const {onClickSort} = this.props;
 
     return (
       <div>
@@ -57,6 +64,15 @@ class InputItem extends React.Component {
         <Button
         className={styles.add}
         onClick={this.onButtonClick}>Добавить</Button>
+        <IconButton
+          aria-label="more"
+          aria-controls="long-menu"
+          aria-haspopup="true"
+          onClick={() => onClickSort()}
+          style={{padding: '13px 13px 0'}}
+        >
+          <SortIcon />
+        </IconButton>
     </div>);
   }
 }
