@@ -16,3 +16,52 @@
   margin-left: 40px;
   text-align: right;
 }
+
+.progress {
+  font-weight: 300;
+  padding: 8%;
+  text-align: center;
+}
+
+.list {
+  font-family: sans-serif;
+}
+
+.link {
+  color: #000;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: #757575;
+}
+
+.info {
+  display: inline-block;
+  margin: auto 40px;
+  vertical-align: top;
+}
+
+.inline {
+  display: inline-block;
+  margin-bottom: 9px;
+}
+
+.text {
+  font-size: 20px;
+  padding-left: 10px;
+}
+
+.buttonOuter {
+  margin-top: 15px;
+}
+
+.buttonInner {
+  width: 208px;
+}
+
+.language {
+  font-family: system-ui;
+  font-weight: 200;
+}

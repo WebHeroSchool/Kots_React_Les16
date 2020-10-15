@@ -5,3 +5,7 @@ ul {
 li {
   list-style-type: none;
 }
+
+.wrap {
+  margin-top: 0;
+}

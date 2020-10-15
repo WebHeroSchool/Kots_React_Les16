@@ -1,23 +1,36 @@
 .wrap {
   display: inline-block;
+  font-family: Helvetica;
   margin: auto;
   padding-bottom: 25px;
   width: 500px;
 }
 
 .title {
-  font-family: Helvetica;
+  text-align: center;
+}
+
+.subtitle {
   text-align: center;
 }
 
 .label {
   display: block;
   font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 15px;
   margin-left: 40px;
-  width: 250px;
 }
 
 .address {
   display: inline-block;
+  font-family: Helvetica;
   text-align: center;
+  vertical-align: middle;
+}
+
+.img {
+  margin-right: 15px;
+  vertical-align: middle;
+  width: 30px;
 }

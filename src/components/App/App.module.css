@@ -1,12 +1,11 @@
 body {
   margin: 0;
-  background-color: aliceblue;
+  background-color: #ff8c00;
   height: calc(100vh - 30px);
 }
 
 .wrap {
-  margin: auto;
-  margin-top: 30px!important;
+  margin: 30px auto!important;
   width: 500px;
 }
 
@@ -21,7 +20,7 @@ body {
 }
 
 .sidebar {
-  background-color: #757575!important;
+  background-color: #a9a9a9!important;
   display: inline-block;
   grid-area: sidebar;
 }

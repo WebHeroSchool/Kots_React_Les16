@@ -3,22 +3,32 @@ import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import PropTypes from 'prop-types';
 import styles from './Footer.module.css';
+import classnames from "classnames";
 
-const Footer = ({dealNumber}) => (<footer>
-  <label className={styles.dealNumber}>Осталось выполнить {dealNumber} заданий</label>
-  <div className={styles.filters}>
-  <ButtonGroup
-  className={styles.filter}
-  size="small"
-  variant="text"
-  aria-label="small text primary button group">
-  <Button>Все</Button>
-  <Button>Активные</Button>
-  <Button>Выполненные</Button>
-  </ButtonGroup>
-  </div>
-  </footer>
-);
+class Footer extends React.Component {
+  render() {
+    const {dealNumber, filter, onClickFilter} = this.props;
+
+    return (<footer>
+        <label className={styles.dealNumber}>Количество задач: <b>{dealNumber}</b></label>
+        <div className={styles.filters}>
+          <ButtonGroup
+          className={styles.filter}
+          size="small"
+          variant="text"
+          aria-label="small text primary button group">
+            <Button onClick={() => onClickFilter('all')}
+            className={classnames({[styles.selected]: (filter === 'all')})}>Все</Button>
+            <Button onClick={() => onClickFilter('active')}
+            className={classnames({[styles.selected]: filter === 'active'})}>Активные</Button>
+            <Button onClick={() => onClickFilter('done')}
+            className={classnames({[styles.selected]: filter === 'done'})}>Выполненные</Button>
+          </ButtonGroup>
+        </div>
+      </footer>
+    );
+  }
+}
 
 Footer.defaultProps = { dealNumber: 0 };
 
